@@ -85,8 +85,10 @@ public class MainActivity extends Activity implements OnArticleSelectedListener{
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
 			ProductFragment productFragment = (ProductFragment) getFragmentManager().findFragmentByTag("product");
 			if(productFragment != null){
-				WebView webView = (WebView) findViewById(R.id.meliWebView);
-				webView.loadUrl(meliProduct.getUrl());
+				WebView webView = (WebView) productFragment.getView().findViewById(R.id.meliWebView);
+				if(webView != null){
+					webView.loadUrl(meliProduct.getUrl());
+				}				
 			}
 		}else{
 			Bundle extras = new Bundle();
